@@ -1,0 +1,338 @@
+[colors]
+background = #3B4252
+foreground = #2E3440
+
+color15 = ${xrdb:color15}
+dark-light = #272A2B
+active-light = #313435
+
+
+; ------------------- SYSTEM INFO ---------------------------------------------
+
+[bar/main]
+monitor = eDP-1-1
+width = 31%
+height = 26
+offset-x = 66.5%
+offset-y = 0.4%
+radius = 13
+fixed-center = true
+bottom = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 4
+border-size = 2
+border-top-size = 2
+border-bottom-size = 4
+border-left-size = 4
+border-right-size = 4
+;border-top-color = #88c0d0
+;border-left-color = #88c0d0
+;border-right-color = #88c0d0
+padding-left = 0
+padding-right = 1
+padding-top = 4
+module-margin-right = 0
+module-margin-left = 0
+
+font-0 = JetBrainsMono-Bold:style:Bold:pixelsize=11;1
+font-1 = Material Design Icons:size=12;1
+font-2 = unifont:pixelsize=12;2
+font-3 = JetBrainsMono Nerd Font:pixelsize=31;
+
+modules-center = memory cpu wlan date
+
+wm-restack = bspwm
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+; ------------------- WORKSPACES + TRAY ----------------------------------------
+
+[bar/workspaces]
+monitor = eDP-1-1
+width = 12%
+height = 26
+offset-x = 1%
+offset-y = 0.4%
+radius = 13
+fixed-center = true
+bottom = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 4
+border-size = 2
+border-top-size = 2
+border-bottom-size = 4
+border-left-size = 4
+border-right-size = 4
+;border-top-color = #88c0d0
+;border-left-color = #88c0d0
+;border-right-color = #88c0d0
+padding-left = 0
+padding-right = 1
+padding-top = 4
+module-margin-right = 0
+module-margin-left = 0
+
+font-0 = JetBrainsMono-Bold:style:Bold:pixelsize=11;1
+font-1 = Material Design Icons:size=12;1
+font-2 = unifont:pixelsize=12;2
+font-3 = JetBrainsMono Nerd Font:pixelsize=31;7
+
+modules-center = bspwm
+
+
+tray-position = right
+tray-detached = true
+tray-maxsize = 16
+tray-background = ${colors.background}
+tray-offset-x = 20%
+tray-offset-y = 0.4%
+tray-padding = 2
+tray-scale = 1.0
+
+wm-restack = bspwm
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+; ------------------- CENTER INFO ---------------------------------------------
+
+[bar/center_info]
+monitor = eDP-1-1
+width = 20%
+height = 26
+offset-x = 40%
+offset-y = 0.4%
+radius = 13
+fixed-center = true
+bottom = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 4
+border-size = 2
+border-top-size = 2
+border-bottom-size = 4
+border-left-size = 4
+border-right-size = 4
+;border-top-color = #88c0d0
+;border-left-color = #88c0d0
+;border-right-color = #88c0d0
+padding-left = 0
+padding-right = 1
+padding-top = 4
+module-margin-right = 0
+module-margin-left = 0
+
+font-0 = JetBrainsMono-Bold:style:Bold:pixelsize=11;1
+font-1 = Material Design Icons:size=12;1
+font-2 = unifont:pixelsize=12;2
+font-3 = JetBrainsMono Nerd Font:pixelsize=31;7
+
+modules-center = xwindow
+
+wm-restack = bspwm
+;override redirect = false
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+; ------------------- POWER BUTTON ---------------------------------------------
+[bar/power_button]
+monitor = eDP-1-1
+width = 2.2%
+height = 26
+offset-x = 97.5%
+offset-y = 0.4%
+radius = 13
+fixed-center = true
+bottom = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 4
+border-size = 2
+border-top-size = 2
+border-bottom-size = 4
+border-left-size = 4
+border-right-size = 4
+;border-top-color = #88c0d0
+;border-left-color = #88c0d0
+;border-right-color = #88c0d0
+padding-left = 0
+padding-right = 1
+padding-top = 4
+module-margin-right = 0
+module-margin-left = 0
+
+font-0 = JetBrainsMono-Bold:style:Bold:pixelsize=11;1
+font-1 = Material Design Icons:size=12;1
+font-2 = unifont:pixelsize=12;2
+font-3 = JetBrainsMono Nerd Font:pixelsize=31;7
+
+modules-center = powermenu
+
+wm-restack = bspwm
+;override redirect = false
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #81A1C1
+
+[module/xwindow]
+type = internal/xwindow
+
+label = %title:..%
+label-maxlen = 20
+label-foreground = #D8DEE9
+label-padding = 1
+
+; Used instead of label when there is no window title
+label-empty = "Desktop"
+label-empty-foreground = ${color.blue-light}
+label-empty-padding = 2
+
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+
+ws-icon-0 =I;1
+ws-icon-1 =II;2
+ws-icon-2 =III;3
+ws-icon-3 =IV;4
+ws-icon-4 =V;5
+
+label-focused = %icon%
+label-focused-background= #81a1c1
+label-focused-padding = 1
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-foreground = #4C566A
+
+label-urgent = %icon%
+;label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-urgent-background = #f19cd7
+
+label-empty = %icon%
+label-empty-foreground = #D8DEE9
+label-empty-padding = 1
+
+; Separator in between workspaces
+label-separator = " "
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+
+label-open = O
+label-close = X
+label-separator = |
+format-spacing = 1
+
+menu-0-0 = shutdown
+menu-0-0-exec = systemctl poweroff
+menu-0-1 = reboot
+menu-0-1-exec = systemctl reboot
+
+;content-padding = 0
+
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "󰻟 "
+format-prefix-foreground = #d08770
+format-underline = #d08770
+label = CPU %percentage%%
+label-minlen = 8
+label-foreground = #d08770
+label-padding = 0
+format-margin = 1
+
+[module/memory]
+type = internal/memory
+label = RAM %percentage_used%%
+label-foreground = #d08770
+label-minlen = 8
+label-padding = 0
+format-margin = 1
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-underline = UNE COULEUR
+label-connected = NET %downspeed%
+label-connected-minlen = 8
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+label-disconnected = 睊no wifi
+label-disconnected-minlen = 8
+label-disconnected-foreground = ${colors.gray}
+format-foreground = #a3be8c
+label-connected-foreground = #a3be8c
+
+; <ramp-signal>
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.gray}
+
+[module/date]
+type = internal/date
+interval = 60
+date  = " %H:%M | %d-%m-%Y"
+time-alt = "%H:%M "
+format-foreground = #000000
+format-background = #81a1c1
+format-padding = 0
+label = %date% %time%
+format-margin = 1
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+[global/wm]
+margin-top = 5
+margin-bottom = 5
